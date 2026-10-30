@@ -7,9 +7,9 @@
     <ImplicitUsings>false</ImplicitUsings>
     <UseWPF>true</UseWPF>
     <UseWindowsForms>true</UseWindowsForms>
-    <AssemblyName>UltimateCameraMod.V3</AssemblyName>
+    <AssemblyName>UltimateCameraMod.V4</AssemblyName>
     <RootNamespace>UltimateCameraMod.V3</RootNamespace>
-    <Version>3.2.0</Version>
+    <Version>4.0.0</Version>
     <Authors>0xFitz</Authors>
     <Description>Export-first camera workflow for Crimson Desert Mod Manager</Description>
     <ApplicationIcon>Assets\ucm.ico</ApplicationIcon>

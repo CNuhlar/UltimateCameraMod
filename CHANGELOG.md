@@ -6,6 +6,20 @@ Format based on [Keep a Changelog](https://keepachangelog.com/). Versioning foll
 
 ---
 
+## [v4.0] - 2026-10-30
+
+Compatibility release for the Crimson Desert 2.04.00 update. The executable is now `UltimateCameraMod.V4.exe`; settings and backups from v3.x are kept.
+
+### Bug Fixes
+- **Install failed after the 2.04 update** ("Index and count must refer to a location within the buffer") - The game switched to a compact `.pamt` index (varint name-table parents, extensions in a trailing table, record count from the folder records). `PamtReader` now reads both the legacy and the compact layout.
+- **Center HUD had no effect on 2.04** - The game now loads compiled `ui/bin__/*.uibinary` views and ignores the HTML files UCM used to edit. The view stylesheets are still loaded as text, so Center HUD now moves the HUD into a centred band directly in them: minimap and quest tracking, health/stamina/exp gauges, alert notifications, the play guide / "waiting" messages and the HUD key guides. World-space trackers (enemy health bars etc.) are left in place. Positions are percentages derived from the screen aspect ratio, so the 16:9 and 21:9 options work on any ultrawide resolution.
+- **CSS size padding could corrupt stylesheets** - The filler used to match compressed sizes was an HTML comment with random characters, which can break CSS parsing. It is now a CSS comment that cannot close early.
+- **Encrypted uncompressed entries were read as text** - Encryption is now detected with strict UTF-8 decoding, and uncompressed text slots are padded with spaces instead of NUL bytes.
+- **Center HUD backups** - Each modified UI file is backed up on its own, so files added in this version are backed up even when an older HUD backup already exists.
+- **Upgrading from v3.x no longer discards the camera backup** - Backups made by v3.x are accepted by v4.
+
+---
+
 ## [v3.2] - 2026-04-11
 
 ### Project

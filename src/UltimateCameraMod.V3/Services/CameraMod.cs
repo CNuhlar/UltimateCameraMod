@@ -720,11 +720,14 @@ public static class CameraMod
                     compMatch = int.TryParse(part["comp_size=".Length..], out int savedComp) && savedComp == entry.CompSize;
                 if (part.StartsWith("ucm_version="))
                 {
-                    // Accept any v3.x backup — don't require exact patch version match
+                    // Accept any v3.x or later backup — v4 kept the v3 backup format, and refreshing
+                    // from a modded PAZ would force users to verify game files.
                     string savedVer = part["ucm_version=".Length..];
                     string savedMajor = savedVer.Split('.')[0];
                     string currentMajor = AppVersion.Split('.')[0];
-                    versionMatch = savedMajor == currentMajor;
+                    versionMatch = savedMajor == currentMajor
+                        || (int.TryParse(savedMajor, out int saved) && int.TryParse(currentMajor, out int current)
+                            && saved >= 3 && saved <= current);
                 }
                 if (part == "vanilla_verified")
                     vanillaValidated = true;
