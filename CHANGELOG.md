@@ -6,6 +6,13 @@ Format based on [Keep a Changelog](https://keepachangelog.com/). Versioning foll
 
 ---
 
+## [v4.0.1] - 2026-10-30
+
+### Bug Fixes
+- **Quest progress notices stayed at the left screen edge with Center HUD** - The "Main Quests | ..." progress box in the alert view sits in a scale wrap without an id, so its content (`#ChallangeHudWrap`) is now moved into the centred band.
+
+---
+
 ## [v4.0] - 2026-10-30
 
 Compatibility release for the Crimson Desert 2.04.00 update. The executable is now `UltimateCameraMod.V4.exe`; settings and backups from v3.x are kept.

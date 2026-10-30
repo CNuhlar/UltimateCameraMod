@@ -27,7 +27,7 @@ namespace UltimateCameraMod.V3;
 
 public partial class MainWindow : Window
 {
-    private const string Ver = "4.0";
+    private const string Ver = "4.0.1";
 
     private static string L(string key) => TranslationSource.Instance[key];
 
